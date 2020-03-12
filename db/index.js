@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/bitztream_video', { useNewUrlParser: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -9,16 +9,17 @@ db.once('open', () => console.log("we're connected!"));
 
 const VideoSchmea = new mongoose.Schema({
   id: Number,
-  name: String,
+  name: { type: String, unique: true },
   title: String,
   tags: String,
   video_pic: String,
+  game_pic: String,
   category: String,
-  Team: String,
-  Watching: Number,
-  Total_Viewer: Number,
-  Video_type: String,
-  Video_duration: Number,
+  team: String,
+  watching: Number,
+  total_Viewer: Number,
+  video_type: String,
+  video_duration: Number,
 });
 
 // category is game name, VIDEO_TYPE: LONG VIDOE, CLIPS, Brodcast
