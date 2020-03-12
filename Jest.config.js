@@ -6,13 +6,11 @@ module.exports = {
     'node_modules',
   ],
   moduleFileExtensions: ['js', 'jsx'],
-  // setupFiles: ['<rootDir>/enzyme.config.js'],
   setupFilesAfterEnv: ['jest-enzyme'],
   testEnvironment: 'enzyme',
   testEnvironmentOptions: {
     enzymeAdapter: 'react16',
   },
-  // transformIgnorePatterns: ['<rootDir>/node_modules/'],
   transform: {
     '^.+\\.js$': 'babel-jest',
     '^.+\\.jsx$': 'babel-jest',
