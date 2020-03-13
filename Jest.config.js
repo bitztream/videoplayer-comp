@@ -6,6 +6,7 @@ module.exports = {
     'node_modules',
   ],
   moduleFileExtensions: ['js', 'jsx'],
+  setupFiles: ['<rootDir>/enzyme.config.js'],
   setupFilesAfterEnv: ['jest-enzyme'],
   testEnvironment: 'enzyme',
   testEnvironmentOptions: {
