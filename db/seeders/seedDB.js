@@ -1,10 +1,8 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable import/no-extraneous-dependencies */
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const faker = require('faker');
 const db = require('../index.js');
-
-
 // videos schema
 const catVideos = ['https://bitztream.s3-us-west-1.amazonaws.com/cat/Lazy+Cat.mp4',
   'https://bitztream.s3-us-west-1.amazonaws.com/cat/Little+Kitten+Playing+His+Toy+Mouse.mp4',
@@ -43,6 +41,7 @@ const videos = () => {
 };
 
 const dummydata = () => {
+  const data = [];
   for (let i = 0; i < 100; i++) {
     // Avata schema
     const name = faker.name.findName();
@@ -51,14 +50,14 @@ const dummydata = () => {
     const watching = Math.floor(faker.finance.amount() * 10);
     const totalViewer = watching * Math.floor(Math.random() * ((10 - 1) + 1));
     const gamePic = faker.image.imageUrl();
-    const avatar = new db.Avatar({
+    data.push({
       name, title, team, watching, totalViewer, gamePic, videos: videos(),
     });
-
-    avatar.save()
-      .then((result) => console.log('saved', result))
-      .catch((err) => console.log(err));
   }
+
+  return db.Avatar.insertMany(data);
 };
 
-dummydata();
+dummydata()
+  .then(() => mongoose.disconnect())
+  .catch((err) => console.log(err));
