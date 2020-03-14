@@ -28,7 +28,6 @@ class App extends React.Component {
 
   render() {
     const { video } = this.state;
-    console.log(video);
     return (
       <div><VideoPlayer video={video} /></div>
     );
