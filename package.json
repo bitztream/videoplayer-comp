@@ -50,6 +50,7 @@
     "mongoose": "^5.9.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.0.1",
+    "svg-parser": "^2.0.4"
   }
 }
