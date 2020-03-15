@@ -2,6 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import VideoPlayer from './Videoplayer.jsx';
+import ChannelInfoBar from './ChannelInfoComp/ChannelInfoBar.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -29,7 +30,10 @@ class App extends React.Component {
   render() {
     const { video } = this.state;
     return (
-      <div><VideoPlayer video={video} /></div>
+      <div>
+        <div><VideoPlayer video={video} /></div>
+        <div><ChannelInfoBar video={video} /></div>
+      </div>
     );
   }
 }
