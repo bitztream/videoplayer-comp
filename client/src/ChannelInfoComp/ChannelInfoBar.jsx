@@ -1,7 +1,14 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/no-unused-state */
+import styled from 'styled-components';
 import React from 'react';
 import ChannelContainer from './ChannelContainer.jsx';
+import InfoButton from './InforButton.jsx';
+
+
+const FlexContainer = styled.div` 
+  display: inline;
+`;
 
 class ChannelInfoBar extends React.Component {
   constructor(props) {
@@ -11,15 +18,16 @@ class ChannelInfoBar extends React.Component {
     };
   }
 
+
   render() {
     return (
-      <div className="flex-container">
+      <FlexContainer>
         <ChannelContainer />
-        <div>
-          <button type="button">svg</button>
-          <button type="button">svg</button>
-        </div>
-      </div>
+        <InfoButton />
+      </FlexContainer>
+
+
+
     );
   }
 }
