@@ -11,10 +11,11 @@ left:20px;
 bottom:20px;
 `;
 const ScrollDownVidList = (props) => {
-
+  const { video } = props;
+  const videoUrl = video[0].videos[0].video_url;
   return (
     <>
-      <Floating title="a" src="https://bitztream.s3-us-west-1.amazonaws.com/cat/Lazy+Cat.mp4" />
+      <Floating title="a" src={videoUrl} />
     </>
   );
 };

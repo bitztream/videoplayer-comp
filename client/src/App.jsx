@@ -24,16 +24,14 @@ class App extends React.Component {
     window.addEventListener('scroll', this.handleScroll, true);
   }
 
-  // componentWillUnmount() {
-  //   window.removeEventListener('scroll', this.handleScroll);
-  // }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 
   get() {
     axios.get('/api/get')
       .then((result) => {
-        this.setState({
-          video: result.data,
-        });
+        this.setState({ video: result.data });
       })
       .catch((err) => console.log(err));
   }
@@ -55,11 +53,16 @@ class App extends React.Component {
 
   render() {
     const { video, hidden } = this.state;
-    const smallVideo = hidden ? <ScrollDownVidList video={video} onScroll={this.handleScroll} /> : '';
+    let smallVideo; let channelInfoBar = '';
+
+    if (video.length !== 0) {
+      smallVideo = hidden ? <ScrollDownVidList video={video} onScroll={this.handleScroll} /> : '';
+      channelInfoBar = <ChannelInfoBar video={video} />;
+    }
     return (
       <div className="mypart">
         <VideoPlayer video={video} />
-        <ChannelInfoBar video={video} />
+        {channelInfoBar}
         {smallVideo}
         <PlaceholderDiv />
         <PlaceholderDiv />
