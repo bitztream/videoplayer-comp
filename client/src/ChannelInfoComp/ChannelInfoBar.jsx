@@ -30,7 +30,7 @@ class ChannelInfoBar extends React.Component {
 
   render() {
     return (
-      <div className="MasterFlex">
+      <div className="MasterFlex" style={{ color: '#484848' }}>
         <TopFlex>
           <ChannelContainer />
           <RightTop><InfoButton /></RightTop>

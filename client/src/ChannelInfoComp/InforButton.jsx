@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-alert */
 /* eslint-disable linebreak-style */
 import React from 'react';
 

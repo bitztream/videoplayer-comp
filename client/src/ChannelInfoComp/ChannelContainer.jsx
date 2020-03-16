@@ -38,7 +38,7 @@ const ChannelContainer = () => {
     <LeftTop>
       <ViewRelated />
       <PicColum>
-        <ImgDiv><img src="http://lorempixel.com/640/480" alt="" style={img} /></ImgDiv>
+        <ImgDiv><img src="https://picsum.photos/420/320" alt="" style={img} /></ImgDiv>
         <div>
           <CateDiv>
             <CatP>Category: link </CatP>
