@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import React from 'react';
 import axios from 'axios';
@@ -30,9 +31,9 @@ class App extends React.Component {
   render() {
     const { video } = this.state;
     return (
-      <div>
-        <div><VideoPlayer video={video} /></div>
-        <div><ChannelInfoBar video={video} /></div>
+      <div className="mypart">
+        <VideoPlayer video={video} />
+        <ChannelInfoBar video={video} />
       </div>
     );
   }

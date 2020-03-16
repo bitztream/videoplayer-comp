@@ -5,7 +5,7 @@ import React from 'react';
 
 const VideoEntry = (props) => (
   <figure>
-    <video className="video" width="700" height="400" controls>
+    <video className="video" width="100%" height="auto" controls>
       <source src={props.video.videos[0].video_url} />
     </video>
   </figure>

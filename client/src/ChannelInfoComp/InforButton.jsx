@@ -1,10 +1,11 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 
 class InforButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'Please write an essay about your favorite DOM element.'
+      value: 'Please write an essay about your favorite DOM element.',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -16,7 +17,7 @@ class InforButton extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('An essay was submitted: ' + this.state.value);
+    alert(`An essay was submitted: ${this.state.value}`);
     event.preventDefault();
   }
 
