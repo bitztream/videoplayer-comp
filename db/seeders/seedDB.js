@@ -49,7 +49,7 @@ const dummydata = () => {
     const team = faker.hacker.abbreviation();
     const watching = Math.floor(faker.finance.amount() * 10);
     const totalViewer = watching * Math.floor(Math.random() * ((10 - 1) + 1));
-    const gamePic = faker.image.imageUrl();
+    const gamePic = 'https://picsum.photos/420/320';
     data.push({
       name, title, team, watching, totalViewer, gamePic, videos: videos(),
     });
