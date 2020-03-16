@@ -3,17 +3,19 @@
 /* eslint-disable import/extensions */
 
 import React from 'react';
-import VideoEtnry from './VideoEntry.jsx';
+import VideoEntry from './VideoEntry.jsx';
 
 
 const Videoplayer = (props) => {
   let display = <div />;
   const { video } = props;
-  if (video) {
-    display = <div>{video.map((vid, idx) => <VideoEtnry key={idx} video={vid} />)}</div>;
+  if (video.length !== 0) {
+    display = <VideoEntry video={video} />;
   }
   return (
-    <div className="display">{ display }</div>
+    <>
+      <div className="display">{ display }</div>
+    </>
   );
 };
 export default Videoplayer;
