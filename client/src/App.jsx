@@ -38,9 +38,10 @@ class App extends React.Component {
       .catch((err) => console.log(err));
   }
 
-  handleScroll() {
+  handleScroll(event) {
+    event.preventDefault();
     const lastScrollY = window.scrollY;
-    if (lastScrollY >= 395) {
+    if (lastScrollY >= 410) {
       this.setState({
         hidden: true,
       });
@@ -54,12 +55,12 @@ class App extends React.Component {
 
   render() {
     const { video, hidden } = this.state;
-    const hide = hidden ? { visibility: 'visible' } : { visibility: 'hidden' };
+    const smallVideo = hidden ? <ScrollDownVidList video={video} onScroll={this.handleScroll} /> : '';
     return (
       <div className="mypart">
         <VideoPlayer video={video} />
         <ChannelInfoBar video={video} />
-        <div style={hide}><ScrollDownVidList video={video} onScroll={this.handleScroll} /></div>
+        {smallVideo}
         <PlaceholderDiv />
         <PlaceholderDiv />
       </div>
