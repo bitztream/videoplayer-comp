@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 /* eslint-disable no-unused-vars */
 /* eslint-disable linebreak-style */
@@ -9,7 +10,7 @@ import Views from './Views.jsx';
 const TitleView = styled.div`
   display:grid;
   grid-template-columns: repeat(13, 1fr);
-  grid-auto-rows: minmax(5px, auto);
+  grid-auto-rows: minmax(0.325rem, auto);
 `;
 
 const Title = styled.div`
@@ -19,11 +20,11 @@ const Title = styled.div`
 `;
 
 
-const ViewRelated = (props) => {
+const ViewRelated = ({ video }) => {
   return (
     <TitleView>
-      <Title className="title"><h2>summit chad poke. [ @summit1g ]</h2></Title>
-      <Views />
+      <Title className="title"><h2>{video[0].title}</h2></Title>
+      <Views video={video} />
     </TitleView>
   );
 };

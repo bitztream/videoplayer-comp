@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 /* eslint-disable react/no-unused-state */
@@ -29,13 +30,14 @@ class ChannelInfoBar extends React.Component {
 
 
   render() {
+    const { video, handleClick } = this.props;
     return (
       <div className="MasterFlex" style={{ color: '#484848' }}>
         <TopFlex>
-          <ChannelContainer />
-          <RightTop><InfoButton /></RightTop>
+          <ChannelContainer video={video} handleClick={handleClick} />
+          <RightTop><InfoButton video={video} /></RightTop>
         </TopFlex>
-        <div style={{ paddingLeft: '20px' }}>Enable in-game Drops with Account Link.</div>
+        <div style={{ paddingLeft: '1.25rem' }}>Enable in-game Drops with Account Link.</div>
       </div>
     );
   }

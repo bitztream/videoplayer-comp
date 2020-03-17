@@ -7,8 +7,8 @@ import styled from 'styled-components';
 const Floating = styled.iframe`
 z-index:100;
 position: fixed;
-left:20px;
-bottom:20px;
+left:1.25rem;
+bottom:1.25rem;
 `;
 const ScrollDownVidList = (props) => {
   const { video } = props;

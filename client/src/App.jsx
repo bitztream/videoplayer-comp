@@ -7,6 +7,7 @@ import VideoPlayer from './Videoplayer.jsx';
 import ChannelInfoBar from './ChannelInfoComp/ChannelInfoBar.jsx';
 import PlaceholderDiv from './Placeholder.jsx';
 import ScrollDownVidList from './ScrollDownVid.jsx';
+import Widget from './PopupWidget/PopForm.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -14,9 +15,11 @@ class App extends React.Component {
     this.state = {
       video: [],
       hidden: false,
+      clicked: false,
     };
     this.get = this.get.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -50,14 +53,29 @@ class App extends React.Component {
     }
   }
 
+  handleClick(event) {
+    event.preventDefault();
+    const { clicked } = this.state;
+    if (clicked) {
+      this.setState({
+        clicked: false,
+      });
+    } else {
+      this.setState({
+        clicked: true,
+      });
+    }
+    console.log(this.state.clicked);
+  }
+
 
   render() {
-    const { video, hidden } = this.state;
+    const { video, hidden, clicked } = this.state;
     let smallVideo; let channelInfoBar = '';
-
+    const popup = clicked ? <Widget video={video} /> : '';
     if (video.length !== 0) {
       smallVideo = hidden ? <ScrollDownVidList video={video} onScroll={this.handleScroll} /> : '';
-      channelInfoBar = <ChannelInfoBar video={video} />;
+      channelInfoBar = <ChannelInfoBar video={video} handleClick={this.handleClick} />;
     }
     return (
       <div className="mypart">
@@ -66,6 +84,7 @@ class App extends React.Component {
         {smallVideo}
         <PlaceholderDiv />
         <PlaceholderDiv />
+        {popup}
       </div>
     );
   }
