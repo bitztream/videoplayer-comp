@@ -6,25 +6,16 @@ import VideoPlayer from '../Videoplayer.jsx';
 
 const Maindiv = styled.div`
   z-index:1;
+  display:flex;
+  flex-direction: column;
   position:fixed;
-  left: 25%;
-  top: 25%;
+  left: 22%;
+  top: 12%;
   width:50%;
-  height:60%;
-  background-color: gray;
-`;
-
-const Close = styled.span`
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  &:hover,
-  &:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  height:70%;
+  overflow: auto;
+  background-color: white;
+  border-radius: 1.2rem;
 `;
 
 const Background = styled.div`
@@ -68,19 +59,15 @@ class Widget extends React.Component {
     return (
       <Background ref={this.backgroundRef}>
         <Maindiv ref={this.popupRef}>
-          <Close className="close">&times;</Close>
-          <div className="slideshow-container">
-            <div className="mySlides fade">
-              <div className="numbertext">1 / 3</div>
+          <div className="slideshow-container" style={{ border: '3px solid red' }}>
+            <div className="slideVideo">
               <VideoPlayer video={video} />
-              <div className="text">Caption Text</div>
             </div>
           </div>
-          <div style={{ textalign: 'center' }}>
-            <span className="dot">1</span>
-            <span className="dot">2</span>
-            <span className="dot">3</span>
+          <div className="infobar" style={{ border: '3px solid blue', flexGrow: '10' }}>
+            <div className="text" style={{ border: '3px solid green' }}>{video[0].title}</div>
           </div>
+          <div style={{ border: '3px solid lime', flexGrow: '50' }}>a </div>
         </Maindiv>
       </Background>
     );

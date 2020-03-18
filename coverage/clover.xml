@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584516602433" clover="3.2.0">
-  <project timestamp="1584516602433" name="All files">
-    <metrics statements="97" coveredstatements="51" conditionals="14" coveredconditionals="3" methods="28" coveredmethods="7" elements="139" coveredelements="61" complexity="0" loc="97" ncloc="97" packages="4" files="13" classes="13"/>
+<coverage generated="1584553670915" clover="3.2.0">
+  <project timestamp="1584553670915" name="All files">
+    <metrics statements="96" coveredstatements="50" conditionals="14" coveredconditionals="3" methods="28" coveredmethods="7" elements="138" coveredelements="60" complexity="0" loc="96" ncloc="96" packages="4" files="13" classes="13"/>
     <package name="client.src">
       <metrics statements="44" coveredstatements="25" conditionals="12" coveredconditionals="3" methods="13" coveredmethods="6"/>
       <file name="App.jsx" path="/Users/alfred/Desktop/videoplayer_comp/client/src/App.jsx">
@@ -123,23 +123,22 @@
       </file>
     </package>
     <package name="client.src.PopupWidget">
-      <metrics statements="14" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <metrics statements="13" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
       <file name="PopForm.jsx" path="/Users/alfred/Desktop/videoplayer_comp/client/src/PopupWidget/PopForm.jsx">
-        <metrics statements="14" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <metrics statements="13" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
         <line num="7" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
+        <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
         <line num="55" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
       </file>
     </package>
     <package name="test">
