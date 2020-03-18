@@ -5,7 +5,7 @@ import testdata from './testdata';
 
 
 describe('Unit Test', () => {
-  const data = testdata.testdata[0];
+  const data = testdata.testdata;
   test('includes a source tag', () => {
     const wrapper = shallow(<VideoEntry video={data} />);
     expect(wrapper.find('source')).toBeDefined();

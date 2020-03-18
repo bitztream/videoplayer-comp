@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import styled from 'styled-components';
@@ -8,7 +9,7 @@ import TagButtons from './TagButtons.jsx';
 const LeftTop = styled.div`
   grid-column: 1 / 13;
   grid-row:1;
-  padding-left:20px;
+  padding-left:1.25rem;
 `;
 
 const PicColum = styled.div`
@@ -32,20 +33,28 @@ const CatP = styled.p`
   margin:0 0.5rem 0.7rem 0;
 `;
 
-const ChannelContainer = () => {
+const ChannelContainer = (props) => {
   const img = { width: '3rem', height: '4.5rem' };
+  const { video, handleClick } = props;
+
   return (
     <LeftTop>
-      <ViewRelated />
+      <ViewRelated video={video} />
       <PicColum>
         <ImgDiv><img src="https://picsum.photos/420/320" alt="" style={img} /></ImgDiv>
         <div>
           <CateDiv>
-            <CatP>Category: link </CatP>
+            <CatP>
+              Category:
+              {video[0].videos[0].category}
+            </CatP>
             <CatP>•</CatP>
-            <CatP>Team: link </CatP>
+            <CatP>
+              Team:
+              {video[0].team}
+            </CatP>
           </CateDiv>
-          <TagButtons />
+          <TagButtons video={video} handleClick={handleClick} />
         </div>
       </PicColum>
     </LeftTop>
