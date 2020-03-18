@@ -28,8 +28,6 @@ class InforButton extends React.Component {
   }
 
   render() {
-    // const { video } = this.props;
-    // console.log('InforButton', video);
     return (
       <form onSubmit={this.handleSubmit}>
         <div>

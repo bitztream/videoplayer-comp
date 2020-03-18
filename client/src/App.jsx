@@ -16,19 +16,23 @@ class App extends React.Component {
       video: [],
       hidden: false,
       clicked: false,
+      parentref: null,
     };
     this.get = this.get.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.parentref = React.createRef();
+    this.popuphandleClick = this.popuphandleClick.bind(this);
   }
 
   componentDidMount() {
     this.get();
     window.addEventListener('scroll', this.handleScroll, true);
+    this.setState({ parentref: this.parentref });
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   get() {
@@ -65,20 +69,37 @@ class App extends React.Component {
         clicked: true,
       });
     }
-    console.log(this.state.clicked);
   }
 
+  popuphandleClick(event) {
+    event.preventDefault();
+    const { clicked } = this.state;
+    if (clicked) {
+      this.setState({
+        clicked: false,
+      });
+    } else {
+      this.setState({
+        clicked: true,
+      });
+    }
+  }
 
   render() {
-    const { video, hidden, clicked } = this.state;
+    const {
+      video, hidden, clicked, parentref,
+    } = this.state;
     let smallVideo; let channelInfoBar = '';
-    const popup = clicked ? <Widget video={video} /> : '';
+
+    const popup = clicked ? <Widget video={video} popuphandleClick={this.popuphandleClick} parentref={parentref} /> : '';
+
     if (video.length !== 0) {
       smallVideo = hidden ? <ScrollDownVidList video={video} onScroll={this.handleScroll} /> : '';
       channelInfoBar = <ChannelInfoBar video={video} handleClick={this.handleClick} />;
     }
+
     return (
-      <div className="mypart">
+      <div className="mypart" ref={this.parentref}>
         <VideoPlayer video={video} />
         {channelInfoBar}
         {smallVideo}
