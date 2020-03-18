@@ -27,10 +27,23 @@ const Close = styled.span`
   }
 `;
 
+const Background = styled.div`
+  position: fixed;
+  z-index: 1; 
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.20);
+`;
+
 class Widget extends React.Component {
   constructor(props) {
     super(props);
     this.popupRef = React.createRef();
+    this.backgroundRef = React.createRef();
     this.callback = this.callback.bind(this);
   }
 
@@ -43,10 +56,9 @@ class Widget extends React.Component {
   }
 
   callback(e) {
-    const { popuphandleClick, parentref } = this.props;
-    console.log(this.popupRef.current);
-    if (!parentref.current.contains(e.target)) {
-      popuphandleClick(e);
+    const { handleClick } = this.props;
+    if (this.backgroundRef.current === e.target) {
+      handleClick(e);
     }
   }
 
@@ -54,21 +66,23 @@ class Widget extends React.Component {
     const { video } = this.props;
 
     return (
-      <Maindiv ref={this.popupRef}>
-        <Close className="close">&times;</Close>
-        <div className="slideshow-container">
-          <div className="mySlides fade">
-            <div className="numbertext">1 / 3</div>
-            <VideoPlayer video={video} />
-            <div className="text">Caption Text</div>
+      <Background ref={this.backgroundRef}>
+        <Maindiv ref={this.popupRef}>
+          <Close className="close">&times;</Close>
+          <div className="slideshow-container">
+            <div className="mySlides fade">
+              <div className="numbertext">1 / 3</div>
+              <VideoPlayer video={video} />
+              <div className="text">Caption Text</div>
+            </div>
           </div>
-        </div>
-        <div style={{ textalign: 'center' }}>
-          <span className="dot">1</span>
-          <span className="dot">2</span>
-          <span className="dot">3</span>
-        </div>
-      </Maindiv>
+          <div style={{ textalign: 'center' }}>
+            <span className="dot">1</span>
+            <span className="dot">2</span>
+            <span className="dot">3</span>
+          </div>
+        </Maindiv>
+      </Background>
     );
   }
 }
