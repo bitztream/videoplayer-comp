@@ -59,15 +59,15 @@ class Widget extends React.Component {
     return (
       <Background ref={this.backgroundRef}>
         <Maindiv ref={this.popupRef}>
-          <div className="slideshow-container" style={{ border: '3px solid red' }}>
-            <div className="slideVideo">
+          <div className="slideshow-container" style={{ border: '3px solid red', flexGrow: '2' }}>
+            <div className="slideVideo" style={{ border: '3px solid blue', flexGrow: '1' }}>
               <VideoPlayer video={video} />
             </div>
           </div>
-          <div className="infobar" style={{ border: '3px solid blue', flexGrow: '10' }}>
+          <div className="infobar" style={{ border: '3px solid blue', flexGrow: '1' }}>
             <div className="text" style={{ border: '3px solid green' }}>{video[0].title}</div>
           </div>
-          <div style={{ border: '3px solid lime', flexGrow: '50' }}>a </div>
+          <div style={{ border: '3px solid lime', flexGrow: '1' }}>a </div>
         </Maindiv>
       </Background>
     );
