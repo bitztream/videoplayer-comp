@@ -1,8 +1,9 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 import React from 'react';
 import styled from 'styled-components';
-import VideoPlayer from '../Videoplayer.jsx';
+import Videos from './Videos.jsx';
 
 const Maindiv = styled.div`
   z-index:1;
@@ -30,6 +31,20 @@ const Background = styled.div`
   background-color: rgba(0,0,0,0.20);
 `;
 
+const Dot = styled.span`
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 1rem 2rem 1rem 0;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  &:hover {
+  background-color: #717171;
+`;
+
+
 class Widget extends React.Component {
   constructor(props) {
     super(props);
@@ -55,19 +70,22 @@ class Widget extends React.Component {
 
   render() {
     const { video } = this.props;
-
     return (
       <Background ref={this.backgroundRef}>
         <Maindiv ref={this.popupRef}>
-          <div className="slideshow-container" style={{ border: '3px solid red', flexGrow: '2' }}>
-            <div className="slideVideo" style={{ border: '3px solid blue', flexGrow: '1' }}>
-              <VideoPlayer video={video} />
+          <Videos video={video} />
+          <div className="infobar" style={{ border: '3px solid blue', flexGrow: '1' }}>
+            <span>
+              {video[0].title}
+              @
+              {video[0].name}
+            </span>
+          </div>
+          <div style={{ border: '3px solid lime', flexGrow: '1' }}>
+            <div style={{ textAlign: 'center' }}>
+              {video[0].videos.map((vid, idx) => <Dot key={idx} className="dot" />)}
             </div>
           </div>
-          <div className="infobar" style={{ border: '3px solid blue', flexGrow: '1' }}>
-            <div className="text" style={{ border: '3px solid green' }}>{video[0].title}</div>
-          </div>
-          <div style={{ border: '3px solid lime', flexGrow: '1' }}>a </div>
         </Maindiv>
       </Background>
     );
