@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable import/no-named-as-default-member */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
@@ -48,9 +50,14 @@ const Dot = styled.span`
 class Widget extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      dot: '',
+    };
     this.popupRef = React.createRef();
     this.backgroundRef = React.createRef();
     this.callback = this.callback.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.resetDot = this.resetDot.bind(this);
   }
 
   componentDidMount() {
@@ -68,12 +75,21 @@ class Widget extends React.Component {
     }
   }
 
+  handleClick(e) {
+    this.setState({ dot: e.target.id });
+  }
+
+  resetDot() {
+    this.setState({ dot: '' });
+  }
+
   render() {
     const { video } = this.props;
+    const { dot } = this.state;
     return (
       <Background ref={this.backgroundRef}>
         <Maindiv ref={this.popupRef}>
-          <Videos video={video} />
+          <Videos video={video} dot={dot} resetDot={this.resetDot} />
           <div className="infobar" style={{ border: '3px solid blue', flexGrow: '1' }}>
             <span>
               {video[0].title}
@@ -83,7 +99,9 @@ class Widget extends React.Component {
           </div>
           <div style={{ border: '3px solid lime', flexGrow: '1' }}>
             <div style={{ textAlign: 'center' }}>
-              {video[0].videos.map((vid, idx) => <Dot key={idx} className="dot" />)}
+              {video[0].videos.map(
+                (vid, idx) => <Dot key={idx} id={idx} onClick={this.handleClick} />,
+              )}
             </div>
           </div>
         </Maindiv>

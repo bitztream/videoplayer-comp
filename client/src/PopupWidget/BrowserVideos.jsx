@@ -3,12 +3,17 @@
 import React from 'react';
 
 
-const BrowserVideos = ({ vid, page, id }) => {
-  console.log(page);
+const BrowserVideos = ({ vid, page, id, dot }) => {
   let style = { display: 'none' };
-  if (page === id) {
-    style = { display: 'block' };
-  } else { style = { display: 'none' }; }
+  if (dot === '') {
+    if (page === id) {
+      style = { display: 'block' };
+    } else { style = { display: 'none' }; }
+  } else if (dot >= 0) {
+    if (parseInt(dot, 10) === id) {
+      style = { display: 'block' };
+    } else { style = { display: 'none' }; }
+  }
 
   return (
     <div className="slides" style={style}>

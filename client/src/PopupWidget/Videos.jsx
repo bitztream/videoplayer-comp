@@ -60,23 +60,28 @@ class Videos extends React.Component {
 
   handleClick(num) {
     const { page } = this.state;
+    const { resetDot, dot } = this.props;
+    if (dot !== '') {
+      resetDot();
+    }
     const slides = document.getElementsByClassName('slides');
-    if (page < 1) { this.setState({ page: slides.length - 1 }); }
-    if (page < 1 && num === -1) { this.setState({ page: slides.length - 1 }); }
-    else if (page === 1 && num === -1) { this.setState({ page: slides.length - 1 }); }
-    else if (page <= slides.length - 1 && page !== slides.length - 1) { this.setState({ page: page + num }); }
-    else if (page === slides.length - 1 && num === -1) { this.setState({ page: page + num }); }
-    else (this.setState({ page: 1 }));
-    console.log(page);
+    if (slides.length !== 0 && slides.length !== 1) {
+      const newpage = (((page + num) % slides.length) + slides.length) % slides.length;
+      if (newpage === 0 && num === -1) this.setState({ page: slides.length - 1 });
+      else if (newpage === 0 && num === 1) this.setState({ page: 1 });
+      else this.setState({ page: newpage });
+    }
   }
 
   render() {
-    const { video } = this.props;
+    const { video, dot } = this.props;
     const { page } = this.state;
+    const player = video[0].videos.map((vid, idx) => <BrowserVideos vid={vid} key={idx} page={page} id={idx} dot={dot} />);
+    console.log(player);
     return (
       <div className="slideshow-container" style={{ border: '3px solid red', flexGrow: '0.5' }}>
         <SlideVideo>
-          {video[0].videos.map((vid, idx) => <BrowserVideos vid={vid} key={idx} page={page} id={idx} />)}
+          {player}
           <Pointer className="left" onClick={() => this.handleClick(-1)}>&#10094;</Pointer>
           <PointerRight className="right" onClick={() => this.handleClick(1)}>&#10095;</PointerRight>
         </SlideVideo>
