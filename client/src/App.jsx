@@ -16,10 +16,12 @@ class App extends React.Component {
       video: [],
       hidden: false,
       clicked: false,
+      open: true,
     };
     this.get = this.get.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.closeVideo = this.closeVideo.bind(this);
   }
 
   componentDidMount() {
@@ -67,13 +69,23 @@ class App extends React.Component {
     }
   }
 
+  closeVideo(event) {
+    event.preventDefault();
+    this.setState({
+      hidden: false,
+      open: false,
+    });
+  }
+
   render() {
-    const { video, hidden, clicked } = this.state;
+    const {
+      video, hidden, clicked, open,
+    } = this.state;
     let smallVideo; let channelInfoBar = '';
     const popup = clicked ? <Widget video={video} handleClick={this.handleClick} /> : '';
 
     if (video.length !== 0) {
-      smallVideo = hidden ? <ScrollDownVidList video={video} onScroll={this.handleScroll} /> : '';
+      smallVideo = hidden && open ? <ScrollDownVidList video={video} onScroll={this.handleScroll} closeVideo={this.closeVideo} /> : '';
       channelInfoBar = <ChannelInfoBar video={video} handleClick={this.handleClick} />;
     }
 

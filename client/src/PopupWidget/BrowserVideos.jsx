@@ -15,9 +15,7 @@ import styled from 'styled-components';
 //   }
 // `;
 
-const BrowserVideos = ({
-  vid, page, id, dot,
-}) => {
+const BrowserVideos = ({ vid, page, id, dot }) => {
   let style = { display: 'none' };
   if (dot === '') {
     if (page === id) {
