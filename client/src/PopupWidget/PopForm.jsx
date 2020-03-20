@@ -66,7 +66,7 @@ const Infobar = styled.div`
 `;
 
 const Title = styled.span`
-  text-shadow: 2px 1px 2px #000000;
+  text-shadow: 1px 1px 2px #000000;
   color: #2e2f3e;
 `;
 
