@@ -18,6 +18,7 @@ class App extends React.Component {
       hidden: false,
       clicked: false,
       open: true,
+      tagName: '',
     };
     this.get = this.get.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
@@ -68,6 +69,9 @@ class App extends React.Component {
         clicked: true,
       });
     }
+    this.setState({
+      tagName: event.target.dataset.tag,
+    });
   }
 
   closeVideo(event) {
@@ -80,7 +84,7 @@ class App extends React.Component {
 
   render() {
     const {
-      video, hidden, clicked, open,
+      video, hidden, clicked, open, tagName,
     } = this.state;
     let smallVideo; let channelInfoBar = '';
     if (video.length !== 0) {
@@ -94,7 +98,7 @@ class App extends React.Component {
         {smallVideo}
         <PlaceholderDiv />
         <PlaceholderDiv />
-        {clicked ? <Widget video={video} handleClick={this.handleClick} /> : ''}
+        {clicked ? <Widget video={video} handleClick={this.handleClick} tagName={tagName} /> : ''}
       </div>
     );
   }

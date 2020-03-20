@@ -64,11 +64,13 @@ class Videos extends React.Component {
   }
 
   render() {
-    const { video, dot } = this.props;
+    const { video, dot, tagName } = this.props;
     const { page } = this.state;
     const player = video[0].videos.map(
-      (vid, idx) => <BrowserVideos vid={vid} key={idx} page={page} id={idx} dot={dot} />,
+      (vid, idx) => (vid.tags.includes(tagName)
+        ? <BrowserVideos vid={vid} key={idx} page={page} id={idx} dot={dot} /> : null),
     );
+
     return (
       <div className="slideshow-container" style={{ flexGrow: '0.5' }}>
         <SlideVideo>

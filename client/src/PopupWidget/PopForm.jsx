@@ -105,12 +105,13 @@ class Widget extends React.Component {
   }
 
   render() {
-    const { video } = this.props;
+    const { video, tagName } = this.props;
     const { dot } = this.state;
+    console.log(tagName);
     return (
       <Background ref={this.backgroundRef}>
         <Maindiv ref={this.popupRef}>
-          <Videos video={video} dot={dot} resetDot={this.resetDot} />
+          <Videos video={video} dot={dot} resetDot={this.resetDot} tagName={tagName} />
           <Infobar>
             <Title>
               <h3>{video[0].title}</h3>
@@ -121,7 +122,8 @@ class Widget extends React.Component {
           <div style={{ flexGrow: '1' }}>
             <Dotdiv>
               {video[0].videos.map(
-                (vid, idx) => <Dot key={idx} id={idx} onClick={this.handleClick} />,
+                (vid, idx) => (vid.tags.includes(tagName)
+                  ? <Dot key={idx} id={idx} onClick={this.handleClick} /> : null),
               )}
             </Dotdiv>
           </div>
