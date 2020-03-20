@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
@@ -10,8 +11,8 @@ import ScrollDownVidList from './ScrollDownVid.jsx';
 import Widget from './PopupWidget/PopForm.jsx';
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       video: [],
       hidden: false,
@@ -82,13 +83,10 @@ class App extends React.Component {
       video, hidden, clicked, open,
     } = this.state;
     let smallVideo; let channelInfoBar = '';
-    const popup = clicked ? <Widget video={video} handleClick={this.handleClick} /> : '';
-
     if (video.length !== 0) {
       smallVideo = hidden && open ? <ScrollDownVidList video={video} onScroll={this.handleScroll} closeVideo={this.closeVideo} /> : '';
       channelInfoBar = <ChannelInfoBar video={video} handleClick={this.handleClick} />;
     }
-
     return (
       <div className="mypart">
         <VideoPlayer video={video} />
@@ -96,7 +94,7 @@ class App extends React.Component {
         {smallVideo}
         <PlaceholderDiv />
         <PlaceholderDiv />
-        {popup}
+        {clicked ? <Widget video={video} handleClick={this.handleClick} /> : ''}
       </div>
     );
   }

@@ -20,7 +20,7 @@ const TagButtons = (props) => {
   return (
     <div className="tags" style={{ display: 'flex' }}>
       {video[0].videos[0].tags.map((tag, idx) => (
-        <TagButton type="button" key={idx} onClick={handleClick}>{tag}</TagButton>
+        <TagButton type="button" key={idx} id={tag} onClick={handleClick}>{tag}</TagButton>
       ))}
     </div>
   );
