@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */

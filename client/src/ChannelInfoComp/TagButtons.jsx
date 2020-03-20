@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
-/* eslint-disable linebreak-style */
 import styled from 'styled-components';
 import React from 'react';
 

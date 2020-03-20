@@ -1,5 +1,3 @@
-/* eslint-disable import/no-named-as-default */
-/* eslint-disable import/no-named-as-default-member */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */

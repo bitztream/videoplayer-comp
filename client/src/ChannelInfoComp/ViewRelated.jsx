@@ -1,8 +1,6 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
-/* eslint-disable no-unused-vars */
-/* eslint-disable linebreak-style */
-/* eslint-disable arrow-body-style */
+/* eslint-disable react/prop-types */
+
 import React from 'react';
 import styled from 'styled-components';
 import Views from './Views.jsx';
@@ -20,13 +18,11 @@ const Title = styled.div`
 `;
 
 
-const ViewRelated = ({ video }) => {
-  return (
-    <TitleView>
-      <Title className="title"><h2>{video[0].title}</h2></Title>
-      <Views video={video} />
-    </TitleView>
-  );
-};
+const ViewRelated = ({ video }) => (
+  <TitleView>
+    <Title className="title"><h2>{video[0].title}</h2></Title>
+    <Views video={video} />
+  </TitleView>
+);
 
 export default ViewRelated;

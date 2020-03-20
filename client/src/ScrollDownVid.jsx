@@ -4,7 +4,7 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import styled from 'styled-components';
-// import VideoEtnry from './VideoEntry.jsx';
+
 const Floating = styled.figure`
   z-index:1;
   position: fixed;
