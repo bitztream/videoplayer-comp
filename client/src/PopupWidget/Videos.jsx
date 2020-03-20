@@ -18,10 +18,6 @@ const Pointer = styled.a`
   font-weight: bold;
   font-size: 18px;
   border-radius: 0 3px 3px 0;
-
-  @media only screen and (min-width:  550px) {
-    top: 30%
-  }
 `;
 
 const PointerRight = styled.a`
@@ -36,14 +32,9 @@ const PointerRight = styled.a`
   font-size: 18px;
   right: 0;
   border-radius: 3px 0 0 3px;
-
-  @media only screen and (min-width:  550px) {
-    top: 30%
-  }
 `;
 
 const SlideVideo = styled.div`
-  border: '3px solid yellow',
   position: 'relative',
   flexGrow: '1',
   text-Align: 'center',
@@ -76,9 +67,11 @@ class Videos extends React.Component {
   render() {
     const { video, dot } = this.props;
     const { page } = this.state;
-    const player = video[0].videos.map((vid, idx) => <BrowserVideos vid={vid} key={idx} page={page} id={idx} dot={dot} />);
+    const player = video[0].videos.map(
+      (vid, idx) => <BrowserVideos vid={vid} key={idx} page={page} id={idx} dot={dot} />,
+    );
     return (
-      <div className="slideshow-container" style={{ border: '3px solid red', flexGrow: '0.5' }}>
+      <div className="slideshow-container" style={{ flexGrow: '0.5' }}>
         <SlideVideo>
           {player}
           <Pointer className="left" onClick={() => this.handleClick(-1)}>&#10094;</Pointer>
