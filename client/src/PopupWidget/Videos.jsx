@@ -77,7 +77,6 @@ class Videos extends React.Component {
     const { video, dot } = this.props;
     const { page } = this.state;
     const player = video[0].videos.map((vid, idx) => <BrowserVideos vid={vid} key={idx} page={page} id={idx} dot={dot} />);
-    console.log(player);
     return (
       <div className="slideshow-container" style={{ border: '3px solid red', flexGrow: '0.5' }}>
         <SlideVideo>
