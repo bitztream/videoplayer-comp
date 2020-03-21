@@ -9,12 +9,21 @@ const TitleView = styled.div`
   display:grid;
   grid-template-columns: repeat(13, 1fr);
   grid-auto-rows: minmax(0.325rem, auto);
+  @media only screen and (max-width: 500px) {
+    display:flex;
+    flex-wrap:wrap;
+  }
 `;
 
 const Title = styled.div`
   grid-column:1/10;
   grid-row:1;
   justify-items: start;
+  font-size: 16px;
+  line-height: 27px;
+  test-align: start;
+  letter-space: normal;
+  color: #0e0e10;
 `;
 
 

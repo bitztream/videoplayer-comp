@@ -3,12 +3,18 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import React from 'react';
+import styled from 'styled-components';
 import axios from 'axios';
 import VideoPlayer from './Videoplayer.jsx';
 import ChannelInfoBar from './ChannelInfoComp/ChannelInfoBar.jsx';
 import PlaceholderDiv from './Placeholder.jsx';
 import ScrollDownVidList from './ScrollDownVid.jsx';
 import Widget from './PopupWidget/PopForm.jsx';
+
+
+const Body = styled.div`
+  font-family: Roobert, "Helvetica Neue", Helvetica, Arial, sans-serif;
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -92,14 +98,14 @@ class App extends React.Component {
       channelInfoBar = <ChannelInfoBar video={video} handleClick={this.handleClick} />;
     }
     return (
-      <div className="mypart">
+      <Body className="mypart" id="target">
         <VideoPlayer video={video} />
         {channelInfoBar}
         {smallVideo}
         <PlaceholderDiv />
         <PlaceholderDiv />
         {clicked ? <Widget video={video} handleClick={this.handleClick} tagName={tagName} /> : ''}
-      </div>
+      </Body>
     );
   }
 }

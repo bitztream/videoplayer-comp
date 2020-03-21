@@ -14,7 +14,7 @@ const Videoplayer = (props) => {
   }
   return (
     <>
-      <div className="display">{ display }</div>
+      <div className="display" style={{ textAlign: 'center', backgroundColor: 'black' }}>{ display }</div>
     </>
   );
 };

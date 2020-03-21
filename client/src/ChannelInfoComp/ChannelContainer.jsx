@@ -46,12 +46,12 @@ const ChannelContainer = (props) => {
           <CateDiv>
             <CatP>
               Category:
-              {video[0].videos[0].category}
+              <span style={{ color: '#9147ff', marginLeft: '5px' }}>{video[0].videos[0].category}</span>
             </CatP>
             <CatP>•</CatP>
             <CatP>
               Team:
-              {video[0].team}
+              <span style={{ color: '#9147ff', marginLeft: '5px' }}>{video[0].team}</span>
             </CatP>
           </CateDiv>
           <TagButtons video={video} handleClick={handleClick} />

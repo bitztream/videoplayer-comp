@@ -12,6 +12,7 @@ const TagButton = styled.button`
   padding: 0 .9rem;
   margin-right: 0.5rem;
   border-radius: 1rem;
+  outline: none;
 `;
 
 const TagButtons = (props) => {
