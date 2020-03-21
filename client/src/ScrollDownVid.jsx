@@ -43,7 +43,7 @@ const Floating = styled.figure`
   bottom: 1.0rem;
   border-radius: 0.5rem;
   &:hover {${Close} {
-    display: inline
+    display: inline;
   }}
 `;
 
@@ -62,7 +62,7 @@ const ScrollDownVidList = (props) => {
           {video[0].name}
           {' '}
           <button type="button" onClick={closeVideo}>  &times; </button>
-          <a href="#target" role="button">go up;</a>
+          <div><a href="#target" role="button">go up;</a></div>
         </Close>
       </Floating>
     </div>
