@@ -4,16 +4,25 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ViewGrid = styled.div`
-  grid-column:11/14;
+  grid-column: 16;
   grid-row:1;
   justify-content: flex-end;
   display: flex;
+  @media only screen and (max-width: 500px) {
+    margin-bottom: 20px;
+    grid-column: 11/13;
+  }
 `;
 
 const FlexViewDiv = styled.div`
   display: flex;
   align-items: center;
-  margin-right:1rem
+  margin-right:12px;
+
+  &.tw-icon__svg {
+    color: #e91916;
+    fill: #e91916;
+  }
 `;
 
 const ViewDiv = styled.div`
@@ -22,9 +31,11 @@ const ViewDiv = styled.div`
 
 const Views = ({ video }) => (
   <ViewGrid>
-    <FlexViewDiv>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M12 2c2.757 0 5 2.243 5 5.001 0 2.756-2.243 5-5 5s-5-2.244-5-5c0-2.758 2.243-5.001 5-5.001zm0-2c-3.866 0-7 3.134-7 7.001 0 3.865 3.134 7 7 7s7-3.135 7-7c0-3.867-3.134-7.001-7-7.001zm6.369 13.353c-.497.498-1.057.931-1.658 1.302 2.872 1.874 4.378 5.083 4.972 7.346h-19.387c.572-2.29 2.058-5.503 4.973-7.358-.603-.374-1.162-.811-1.658-1.312-4.258 3.072-5.611 8.506-5.611 10.669h24c0-2.142-1.44-7.557-5.631-10.647z" />
+    <FlexViewDiv className="tw-icon__svg">
+      <svg width="24" height="24" version="1.1" viewBox="0 0 20 20" x="0px" y="0px">
+        <g>
+          <path fillRule="evenodd" d="M5 7a5 5 0 116.192 4.857A2 2 0 0013 13h1a3 3 0 013 3v2h-2v-2a1 1 0 00-1-1h-1a3.99 3.99 0 01-3-1.354A3.99 3.99 0 017 15H6a1 1 0 00-1 1v2H3v-2a3 3 0 013-3h1a2 2 0 001.808-1.143A5.002 5.002 0 015 7zm5 3a3 3 0 110-6 3 3 0 010 6z" clipRule="evenodd" />
+        </g>
       </svg>
       <ViewDiv>
         {video[0].watching}

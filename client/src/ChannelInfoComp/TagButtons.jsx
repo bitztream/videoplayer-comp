@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
-/* eslint-disable linebreak-style */
 import styled from 'styled-components';
 import React from 'react';
 
@@ -13,6 +12,7 @@ const TagButton = styled.button`
   padding: 0 .9rem;
   margin-right: 0.5rem;
   border-radius: 1rem;
+  outline: none;
 `;
 
 const TagButtons = (props) => {
@@ -20,7 +20,7 @@ const TagButtons = (props) => {
   return (
     <div className="tags" style={{ display: 'flex' }}>
       {video[0].videos[0].tags.map((tag, idx) => (
-        <TagButton type="button" key={idx} onClick={handleClick}>{tag}</TagButton>
+        <TagButton type="button" key={idx} data-tag={tag} onClick={handleClick}>{tag}</TagButton>
       ))}
     </div>
   );

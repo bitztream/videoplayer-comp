@@ -1,41 +1,84 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 import React from 'react';
 import styled from 'styled-components';
-import VideoPlayer from '../Videoplayer.jsx';
+import Videos from './Videos.jsx';
 
 const Maindiv = styled.div`
   z-index:1;
   display:flex;
   flex-direction: column;
   position:fixed;
-  left: 22%;
-  top: 12%;
-  width:50%;
-  height:70%;
+  width:400px;
+  height:550px;
   overflow: auto;
   background-color: white;
   border-radius: 1.2rem;
+  box-shadow: -6px 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  &:hover {
+    margin: -5px 0px 0px 5px;
+    box-shadow: -4px 4px 6px #9147ff, 0 2px 3px 0 rgba(0, 0, 0, 0.19);
+  }
+  
 `;
 
 const Background = styled.div`
+  display:flex;
+  align-items:center;
+  justify-content: center;
   position: fixed;
   z-index: 1; 
-  padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto; 
-  background-color: rgba(0,0,0,0.20);
+  background-color: rgba(0,0,0,0.1);
+`;
+
+const Dotdiv = styled.div`
+  text-align: center; 
+  margin-top: 15px;
+`;
+
+const Dot = styled.span`
+  cursor: pointer;
+  height: 0.6rem;
+  width: 0.6rem;
+  margin-right: 20px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+  &:hover {
+  padding-top: 3px;
+  background-color: #717171;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+`;
+
+const Infobar = styled.div`
+  flexGrow: 1;
+  text-align: center;
+`;
+
+const Title = styled.span`
+  text-shadow: 1px 1px 2px #000000;
+  color: #2e2f3e;
 `;
 
 class Widget extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      dot: '',
+    };
     this.popupRef = React.createRef();
     this.backgroundRef = React.createRef();
     this.callback = this.callback.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.resetDot = this.resetDot.bind(this);
   }
 
   componentDidMount() {
@@ -53,21 +96,36 @@ class Widget extends React.Component {
     }
   }
 
-  render() {
-    const { video } = this.props;
+  handleClick(e) {
+    this.setState({ dot: e.target.id });
+  }
 
+  resetDot() {
+    this.setState({ dot: '' });
+  }
+
+  render() {
+    const { video, tagName } = this.props;
+    const { dot } = this.state;
     return (
       <Background ref={this.backgroundRef}>
         <Maindiv ref={this.popupRef}>
-          <div className="slideshow-container" style={{ border: '3px solid red', flexGrow: '2' }}>
-            <div className="slideVideo" style={{ border: '3px solid blue', flexGrow: '1' }}>
-              <VideoPlayer video={video} />
-            </div>
+          <Videos video={video} dot={dot} resetDot={this.resetDot} tagName={tagName} />
+          <Infobar>
+            <Title>
+              <h3>{video[0].title}</h3>
+              <h3>@</h3>
+              <h3>{video[0].name}</h3>
+            </Title>
+          </Infobar>
+          <div style={{ flexGrow: '1' }}>
+            <Dotdiv>
+              {video[0].videos.map(
+                (vid, idx) => (vid.tags.includes(tagName) && idx !== 0
+                  ? <Dot key={idx} id={idx} onClick={this.handleClick} /> : null),
+              )}
+            </Dotdiv>
           </div>
-          <div className="infobar" style={{ border: '3px solid blue', flexGrow: '1' }}>
-            <div className="text" style={{ border: '3px solid green' }}>{video[0].title}</div>
-          </div>
-          <div style={{ border: '3px solid lime', flexGrow: '1' }}>a </div>
         </Maindiv>
       </Background>
     );
