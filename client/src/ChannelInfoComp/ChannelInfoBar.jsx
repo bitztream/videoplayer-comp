@@ -10,12 +10,12 @@ import InfoButton from './InforButton.jsx';
 const TopFlex = styled.div`
   display:grid;
   align-items:baseline;
-  grid-template-columns: repeat(13, 1fr);
-  grid-auto-rows: minmax(5px, auto);
+  grid-template-columns: repeat(16, 1fr);
+  grid-auto-rows: minmax(3px, auto);
 `;
 
 const RightTop = styled.div`
-  grid-column: 13;
+  grid-column: 16;
   gird-row:1;
   justify-items: start;
 `;

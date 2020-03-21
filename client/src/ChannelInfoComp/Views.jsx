@@ -4,12 +4,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ViewGrid = styled.div`
-  grid-column:11/14;
+  grid-column: 16;
   grid-row:1;
   justify-content: flex-end;
   display: flex;
   @media only screen and (max-width: 500px) {
     margin-bottom: 20px;
+    grid-column: 11/13;
   }
 `;
 

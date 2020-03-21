@@ -7,9 +7,12 @@ import ViewRelated from './ViewRelated.jsx';
 import TagButtons from './TagButtons.jsx';
 
 const LeftTop = styled.div`
-  grid-column: 1 / 13;
+  grid-column: 1 / 16;
   grid-row:1;
   padding-left:1.25rem;
+  @media only screen and (max-width: 500px) {
+    grid-column: 1/13;
+  }
 `;
 
 const PicColum = styled.div`
