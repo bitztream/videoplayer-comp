@@ -6,7 +6,7 @@ import React from 'react';
 import VideoEntry from './VideoEntry.jsx';
 
 
-const Videoplayer = (props) => {
+const VideoPlayer = (props) => {
   let display = <div />;
   const { video } = props;
   if (video.length !== 0) {
@@ -18,4 +18,4 @@ const Videoplayer = (props) => {
     </>
   );
 };
-export default Videoplayer;
+export default VideoPlayer;

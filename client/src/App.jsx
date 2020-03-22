@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-param-reassign */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable linebreak-style */
@@ -5,11 +7,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import VideoPlayer from './Videoplayer.jsx';
+import VideoPlayer from './VideoPlayer.jsx';
 import ChannelInfoBar from './ChannelInfoComp/ChannelInfoBar.jsx';
 import PlaceholderDiv from './Placeholder.jsx';
 import ScrollDownVidList from './ScrollDownVid.jsx';
-import Widget from './PopupWidget/PopForm.jsx';
+import Widget from './PopupWidget/Widget.jsx';
 
 
 const Body = styled.div`
@@ -30,6 +32,7 @@ class App extends React.Component {
     this.handleScroll = this.handleScroll.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.closeVideo = this.closeVideo.bind(this);
+    this.handleWindowClick = this.handleWindowClick.bind(this);
   }
 
   componentDidMount() {
@@ -52,32 +55,31 @@ class App extends React.Component {
   handleScroll(event) {
     event.preventDefault();
     const lastScrollY = window.scrollY;
-    if (lastScrollY >= 410) {
-      this.setState({
-        hidden: true,
-      });
-    } else {
-      this.setState({
-        hidden: false,
-      });
-    }
+    return lastScrollY >= 410 ? this.setState({ hidden: true }) : this.setState({ hidden: false });
+  }
+
+  handleWindowClick() {
+    const { clicked } = this.state;
+    return clicked ? this.setState({ clicked: false }) : this.setState({ clicked: true });
   }
 
   handleClick(event) {
-    event.preventDefault();
-    const { clicked } = this.state;
-    if (clicked) {
-      this.setState({
-        clicked: false,
-      });
-    } else {
-      this.setState({
-        clicked: true,
-      });
+    const { clicked, video } = this.state;
+    const similiar = video[0].videos.slice(1).map(
+      (vid) => (!!(vid.tags.includes(event.target.dataset.tag))),
+    ).reduce((acc, item) => {
+      if (item) {
+        acc = item;
+      }
+      return acc;
+    }, false);
+
+    if (!similiar) {
+      return;
     }
-    this.setState({
-      tagName: event.target.dataset.tag,
-    });
+    clicked
+      ? this.setState({ clicked: false, tagName: event.target.dataset.tag })
+      : this.setState({ clicked: true, tagName: event.target.dataset.tag });
   }
 
   closeVideo(event) {
@@ -104,7 +106,7 @@ class App extends React.Component {
         {smallVideo}
         <PlaceholderDiv />
         <PlaceholderDiv />
-        {clicked ? <Widget video={video} handleClick={this.handleClick} tagName={tagName} /> : ''}
+        {clicked ? <Widget video={video} handleClick={this.handleClick} handleWindowClick={this.handleWindowClick} tagName={tagName} /> : ''}
       </Body>
     );
   }

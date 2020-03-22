@@ -15,7 +15,7 @@ const Slides = styled.div`
   animation-duration: 1.5s;
 `;
 
-class BrowserVideos extends React.Component {
+class WidgetVideoEntry extends React.Component {
   constructor(props) {
     super(props);
     this.slidesRef = React.createRef();
@@ -60,4 +60,4 @@ class BrowserVideos extends React.Component {
 }
 
 
-export default BrowserVideos;
+export default WidgetVideoEntry;

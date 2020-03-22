@@ -7,11 +7,14 @@ const PlaceholderDiv = styled.div`
 `;
 
 const Placeholder = () => (
-  <div style={{ display: 'flex', margin: '1.2rem', flexWrap: 'wrap' }}>
-    <PlaceholderDiv>Content</PlaceholderDiv>
-    <PlaceholderDiv>Content</PlaceholderDiv>
-    <PlaceholderDiv>Content</PlaceholderDiv>
-    <PlaceholderDiv>Content</PlaceholderDiv>
+  <div style={{
+    display: 'flex', margin: '1.2rem', flexWrap: 'wrap', justify: 'center',
+  }}
+  >
+    <PlaceholderDiv />
+    <PlaceholderDiv />
+    <PlaceholderDiv />
+    <PlaceholderDiv />
   </div>
 
 );
