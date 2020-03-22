@@ -19,17 +19,25 @@ const Title = styled.div`
   grid-column:1/10;
   grid-row:1;
   justify-items: start;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 27px;
   test-align: start;
   letter-space: normal;
   color: #0e0e10;
+  font-family: Roobert, "Helvetica Neue", Helvetica, Arial, sans-serif;
 `;
 
 
 const ViewRelated = ({ video }) => (
   <TitleView>
-    <Title className="title"><h2>{video[0].title}</h2></Title>
+    <Title className="title">
+      <h2>
+        {video[0].title}
+        {' [@'}
+        {video[0].name}
+        ]
+      </h2>
+    </Title>
     <Views video={video} />
   </TitleView>
 );

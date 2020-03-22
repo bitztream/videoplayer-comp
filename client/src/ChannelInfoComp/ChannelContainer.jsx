@@ -34,10 +34,21 @@ const CateDiv = styled.div`
 `;
 const CatP = styled.p`
   margin:0 0.5rem 0.7rem 0;
+  font-size: 14px;
+`;
+
+const SpanTitle = styled.span`
+  color: #9147ff;
+  margin-left: 5px;
+  &:hover {
+    text-decoration: underline;
+    cursor:pointer;
+  }
+  
 `;
 
 const ChannelContainer = (props) => {
-  const img = { width: '3rem', height: '4.5rem' };
+  const img = { width: '3.1rem', height: '4rem' };
   const { video, handleClick } = props;
 
   return (
@@ -49,12 +60,12 @@ const ChannelContainer = (props) => {
           <CateDiv>
             <CatP>
               Category:
-              <span style={{ color: '#9147ff', marginLeft: '5px' }}>{video[0].videos[0].category}</span>
+              <SpanTitle>{video[0].videos[0].category}</SpanTitle>
             </CatP>
             <CatP>•</CatP>
             <CatP>
               Team:
-              <span style={{ color: '#9147ff', marginLeft: '5px' }}>{video[0].team}</span>
+              <SpanTitle>{video[0].team}</SpanTitle>
             </CatP>
           </CateDiv>
           <TagButtons video={video} handleClick={handleClick} />

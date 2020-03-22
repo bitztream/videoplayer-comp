@@ -3,7 +3,7 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import styled from 'styled-components';
-import BrowserVideos from './BrowserVideos.jsx';
+import WidgetVideoEntry from './WidgetVideoEntry.jsx';
 
 const Pointer = styled.a`
   position:absolute;
@@ -39,7 +39,7 @@ const SlideVideo = styled.div`
   text-Align: 'center',
 `;
 
-class Videos extends React.Component {
+class WidgetVideoPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,7 +68,7 @@ class Videos extends React.Component {
     const { page } = this.state;
     const player = video[0].videos.map(
       (vid, idx) => (vid.tags.includes(tagName)
-        ? <BrowserVideos vid={vid} key={idx} page={page} id={idx} dot={dot} /> : null),
+        ? <WidgetVideoEntry vid={vid} key={idx} page={page} id={idx} dot={dot} /> : null),
     );
 
     return (
@@ -83,4 +83,4 @@ class Videos extends React.Component {
   }
 }
 
-export default Videos;
+export default WidgetVideoPlayer;

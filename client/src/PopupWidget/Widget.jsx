@@ -3,15 +3,15 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import styled from 'styled-components';
-import Videos from './Videos.jsx';
+import WidgetVideoPlayer from './WidgetVideoPlayer.jsx';
 
 const Maindiv = styled.div`
   z-index:1;
   display:flex;
   flex-direction: column;
   position:fixed;
-  width:400px;
-  height:550px;
+  width:420px;
+  height:445px;
   overflow: auto;
   background-color: white;
   border-radius: 1.2rem;
@@ -34,7 +34,7 @@ const Background = styled.div`
   width: 100%;
   height: 100%;
   overflow: auto; 
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.6);
 `;
 
 const Dotdiv = styled.div`
@@ -90,9 +90,9 @@ class Widget extends React.Component {
   }
 
   callback(e) {
-    const { handleClick } = this.props;
+    const { handleWindowClick } = this.props;
     if (this.backgroundRef.current === e.target) {
-      handleClick(e);
+      handleWindowClick();
     }
   }
 
@@ -110,12 +110,10 @@ class Widget extends React.Component {
     return (
       <Background ref={this.backgroundRef}>
         <Maindiv ref={this.popupRef}>
-          <Videos video={video} dot={dot} resetDot={this.resetDot} tagName={tagName} />
+          <WidgetVideoPlayer video={video} dot={dot} resetDot={this.resetDot} tagName={tagName} />
           <Infobar>
             <Title>
-              <h3>{video[0].title}</h3>
-              <h3>@</h3>
-              <h3>{video[0].name}</h3>
+              <h3>Similiar broadcasts</h3>
             </Title>
           </Infobar>
           <div style={{ flexGrow: '1' }}>

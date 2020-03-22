@@ -25,17 +25,22 @@ const Button = styled.button`
   border: 0;
   text-decoration: underline;
   font: inhert;
-  font-size:100%;
+  font-size: 14px;
   margin:0;
   outline: none;
   padding-left:3px;
+  font-family: Roobert, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  &:hover {
+    cursor:pointer;
+  }
 `;
 
 const Atag = styled.a`
   color: #772ce8;
   border: 0;
   font: inhert;
-  font-size:100%;
+  font-size:14px;
+  font-family: Roobert, "Helvetica Neue", Helvetica, Arial, sans-serif;
   outline: none;
   padding: 1px 7px 2px 3px;
 `;
