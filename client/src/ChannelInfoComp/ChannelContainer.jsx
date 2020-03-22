@@ -34,6 +34,7 @@ const CateDiv = styled.div`
 `;
 const CatP = styled.p`
   margin:0 0.5rem 0.7rem 0;
+  font-size: 14px;
 `;
 
 const SpanTitle = styled.span`
@@ -43,10 +44,11 @@ const SpanTitle = styled.span`
     text-decoration: underline;
     cursor:pointer;
   }
+  
 `;
 
 const ChannelContainer = (props) => {
-  const img = { width: '3rem', height: '4.5rem' };
+  const img = { width: '3.1rem', height: '4rem' };
   const { video, handleClick } = props;
 
   return (

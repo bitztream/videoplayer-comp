@@ -4,15 +4,19 @@ import styled from 'styled-components';
 import React from 'react';
 
 const TagButton = styled.button`
-  font-size: 14px;
+  font-size: 12px;
   border-color: buttonface;
   background-color:gainsboro;
-  color:dimgray;
+  color:black;
+  opacity: 70%;
   align-items: center;
-  padding: 0.1rem .4rem 0.22rem .4rem;
+  padding: 0.07rem .4rem 0.15rem .4rem;
   margin-right: 0.5rem;
   border-radius: .8rem;
   outline: none;
+  text-align: start;
+  line-height: 16.5px;
+  font-family: Roobert, "Helvetica Neue", Helvetica, Arial, sans-serif;
 `;
 
 const TagButtons = (props) => {

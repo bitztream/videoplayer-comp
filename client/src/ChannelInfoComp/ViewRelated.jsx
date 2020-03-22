@@ -24,6 +24,7 @@ const Title = styled.div`
   test-align: start;
   letter-space: normal;
   color: #0e0e10;
+  font-family: Roobert, "Helvetica Neue", Helvetica, Arial, sans-serif;
 `;
 
 
