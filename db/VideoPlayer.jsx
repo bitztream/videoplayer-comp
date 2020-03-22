@@ -3,7 +3,7 @@
 /* eslint-disable import/extensions */
 
 import React from 'react';
-import VideoEntry from './VideoEntry.jsx';
+import VideoEntry from '../client/src/VideoEntry.jsx';
 
 
 const VideoPlayer = (props) => {
