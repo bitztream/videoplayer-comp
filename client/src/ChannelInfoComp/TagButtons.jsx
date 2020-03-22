@@ -4,14 +4,14 @@ import styled from 'styled-components';
 import React from 'react';
 
 const TagButton = styled.button`
-  font-size: 0.8rem;
+  font-size: 14px;
   border-color: buttonface;
   background-color:gainsboro;
   color:dimgray;
   align-items: center;
-  padding: 0 .9rem;
+  padding: 0.1rem .4rem 0.22rem .4rem;
   margin-right: 0.5rem;
-  border-radius: 1rem;
+  border-radius: .8rem;
   outline: none;
 `;
 
