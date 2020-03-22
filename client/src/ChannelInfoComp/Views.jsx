@@ -18,15 +18,52 @@ const FlexViewDiv = styled.div`
   display: flex;
   align-items: center;
   margin-right:12px;
-
+  position: relative;
   &.tw-icon__svg {
     color: #e91916;
     fill: #e91916;
   }
 `;
 
+const Span1 = styled.span`
+  visibility: hidden;
+  width: 90px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 77%;
+  left: 78%;
+  margin-left: -60px;
+  font-size: 12px;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+  }
+`;
+
+const Span2 = styled(Span1)`
+  top: 77%;
+  left: 89%;
+`;
+
 const ViewDiv = styled.div`
   margin-left:.5rem;
+  &:hover ${Span1}{
+    visibility: visible;
+  }
+  &:hover ${Span2}{
+    visibility: visible;
+  }
 `;
 
 const Views = ({ video }) => (
@@ -39,6 +76,7 @@ const Views = ({ video }) => (
       </svg>
       <ViewDiv>
         {video[0].watching}
+        <Span1>Watching Now</Span1>
       </ViewDiv>
     </FlexViewDiv>
     <FlexViewDiv>
@@ -47,6 +85,7 @@ const Views = ({ video }) => (
       </svg>
       <ViewDiv>
         {video[0].totalViewer}
+        <Span2>Total Views</Span2>
       </ViewDiv>
     </FlexViewDiv>
   </ViewGrid>

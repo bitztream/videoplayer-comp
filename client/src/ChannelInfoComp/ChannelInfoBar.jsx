@@ -29,6 +29,9 @@ const Button = styled.button`
   margin:0;
   outline: none;
   padding-left:3px;
+  &:hover {
+    cursor:pointer;
+  }
 `;
 
 const Atag = styled.a`
