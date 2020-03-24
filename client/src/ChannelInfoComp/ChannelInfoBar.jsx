@@ -9,7 +9,7 @@ import InfoButton from './InforButton.jsx';
 
 const TopFlex = styled.div`
   display:grid;
-  align-items:baseline;
+  align-items: start;
   grid-template-columns: repeat(16, 1fr);
   grid-auto-rows: minmax(3px, auto);
 `;
@@ -17,7 +17,7 @@ const TopFlex = styled.div`
 const RightTop = styled.div`
   grid-column: 16;
   gird-row:1;
-  justify-items: start;
+  align-self: center;
 `;
 
 const Button = styled.button`
@@ -68,7 +68,7 @@ class ChannelInfoBar extends React.Component {
       <div className="MasterFlex" style={{ color: '#484848' }}>
         <TopFlex>
           <ChannelContainer video={video} handleClick={handleClick} />
-          <RightTop><InfoButton video={video} /></RightTop>
+          <RightTop className="daf"><InfoButton video={video} /></RightTop>
         </TopFlex>
         <div style={{ paddingLeft: '1.25rem', display: 'flex' }}>
           Enable in-game Drops with
