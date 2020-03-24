@@ -46,7 +46,7 @@ class App extends React.Component {
   get() {
     axios.get('/api/get')
       .then((result) => {
-        this.setState({ video: result.data });
+        this.setState({ video: [result.data] });
         window.addEventListener('scroll', this.handleScroll);
       })
       .catch((err) => console.log(err));
