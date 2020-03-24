@@ -9,10 +9,10 @@ const fade = keyframes`
 `;
 
 const Slides = styled.div`
-  // -webkit-animation-name: ${fade};
-  // -webkit-animation-duration: 1.5s;
-  // animation-name: ${fade};
-  // animation-duration: 1.5s;
+  -webkit-animation-name: ${fade};
+  -webkit-animation-duration: 1.5s;
+  animation-name: ${fade};
+  animation-duration: 1.5s;
 `;
 
 class WidgetVideoEntry extends React.Component {
@@ -22,35 +22,35 @@ class WidgetVideoEntry extends React.Component {
   }
 
   // finsished return but not yet render
-  // componentDidMount() {
-  //   const { page, id, dot } = this.props;
-  //   const currentslide = this.slidesRef.current;
-  //   currentslide.style.display = 'none';
+  componentDidMount() {
+    const { page, id, dot } = this.props;
+    const currentslide = this.slidesRef.current;
+    currentslide.style.display = 'none';
 
-  //   if (dot === '') {
-  //     currentslide.style.display = page === id ? 'block' : 'none';
-  //   } else if (dot >= 0) {
-  //     currentslide.style.display = parseInt(dot, 10) === id ? 'block' : 'none';
-  //   }
-  // }
+    if (dot === '') {
+      currentslide.style.display = page === id ? 'block' : 'none';
+    } else if (dot >= 0) {
+      currentslide.style.display = parseInt(dot, 10) === id ? 'block' : 'none';
+    }
+  }
 
-  // componentDidUpdate() {
-  //   const { page, id, dot } = this.props;
-  //   const currentslide = this.slidesRef.current;
-  //   currentslide.style.display = 'none';
-  //   if (dot === '') {
-  //     currentslide.style.display = page === id ? 'block' : 'none';
-  //   } else if (dot >= 0) {
-  //     currentslide.style.display = parseInt(dot, 10) === id ? 'block' : 'none';
-  //   }
-  // }
+  componentDidUpdate() {
+    const { page, id, dot } = this.props;
+    const currentslide = this.slidesRef.current;
+    currentslide.style.display = 'none';
+    if (dot === '') {
+      currentslide.style.display = page === id ? 'block' : 'none';
+    } else if (dot >= 0) {
+      currentslide.style.display = parseInt(dot, 10) === id ? 'block' : 'none';
+    }
+  }
 
   render() {
     const { vid } = this.props;
     return (
       <Slides className="slides" ref={this.slidesRef}>
         <figure style={{ margin: '0' }}>
-          <video className="video" width="50%" height="50%" controls>
+          <video className="video" width="100%" height="auto" controls>
             <source src={vid.video_url} />
           </video>
         </figure>
