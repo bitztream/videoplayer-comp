@@ -8,9 +8,9 @@ const ViewGrid = styled.div`
   grid-row:1;
   justify-content: start;
   display: flex;
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 600px) {
     margin-bottom: 20px;
-    grid-column: 11/13;
+    grid-column: 16/16;
   }
 `;
 

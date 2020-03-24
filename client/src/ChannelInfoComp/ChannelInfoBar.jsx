@@ -18,6 +18,9 @@ const RightTop = styled.div`
   grid-column: 16;
   gird-row:1;
   align-self: center;
+  @media only screen and (max-width: 600px) {
+    display:none;
+  }
 `;
 
 const Button = styled.button`
@@ -65,10 +68,10 @@ class ChannelInfoBar extends React.Component {
     const { loginform } = this.state;
     const loginComp = loginform ? <Atag href="localhost:3000">Account link</Atag> : <Button type="button" onClick={this.handleSubmit}>Twitch Account</Button>;
     return (
-      <div className="MasterFlex" style={{ color: '#484848' }}>
+      <div id="a" className="MasterFlex" style={{ color: '#484848' }}>
         <TopFlex>
           <ChannelContainer video={video} handleClick={handleClick} />
-          <RightTop className="daf"><InfoButton video={video} /></RightTop>
+          <RightTop><InfoButton video={video} /></RightTop>
         </TopFlex>
         <div style={{ paddingLeft: '1.25rem', display: 'flex' }}>
           Enable in-game Drops with
