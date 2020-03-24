@@ -9,7 +9,7 @@ import InfoButton from './InforButton.jsx';
 
 const TopFlex = styled.div`
   display:grid;
-  align-items:baseline;
+  align-items: start;
   grid-template-columns: repeat(16, 1fr);
   grid-auto-rows: minmax(3px, auto);
 `;
@@ -17,7 +17,10 @@ const TopFlex = styled.div`
 const RightTop = styled.div`
   grid-column: 16;
   gird-row:1;
-  justify-items: start;
+  align-self: center;
+  @media only screen and (max-width: 600px) {
+    display:none;
+  }
 `;
 
 const Button = styled.button`
@@ -65,7 +68,7 @@ class ChannelInfoBar extends React.Component {
     const { loginform } = this.state;
     const loginComp = loginform ? <Atag href="localhost:3000">Account link</Atag> : <Button type="button" onClick={this.handleSubmit}>Twitch Account</Button>;
     return (
-      <div className="MasterFlex" style={{ color: '#484848' }}>
+      <div id="a" className="MasterFlex" style={{ color: '#484848' }}>
         <TopFlex>
           <ChannelContainer video={video} handleClick={handleClick} />
           <RightTop><InfoButton video={video} /></RightTop>

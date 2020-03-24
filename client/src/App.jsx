@@ -37,7 +37,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.get();
-    window.addEventListener('scroll', this.handleScroll, true);
   }
 
   componentWillUnmount() {
@@ -48,6 +47,7 @@ class App extends React.Component {
     axios.get('/api/get')
       .then((result) => {
         this.setState({ video: result.data });
+        window.addEventListener('scroll', this.handleScroll);
       })
       .catch((err) => console.log(err));
   }
@@ -55,7 +55,9 @@ class App extends React.Component {
   handleScroll(event) {
     event.preventDefault();
     const lastScrollY = window.scrollY;
-    return lastScrollY >= 410 ? this.setState({ hidden: true }) : this.setState({ hidden: false });
+    const InfoBaroffset = document.getElementsByClassName('MasterFlex');
+    return lastScrollY >= InfoBaroffset[0].offsetTop
+      ? this.setState({ hidden: true }) : this.setState({ hidden: false });
   }
 
   handleWindowClick() {
@@ -101,9 +103,10 @@ class App extends React.Component {
     }
     return (
       <Body className="mypart" id="target">
-        <VideoPlayer video={video} />
+        {hidden && open ? <PlaceholderDiv /> : <VideoPlayer video={video} />}
         {channelInfoBar}
         {smallVideo}
+        <PlaceholderDiv />
         <PlaceholderDiv />
         <PlaceholderDiv />
         {clicked ? <Widget video={video} handleClick={this.handleClick} handleWindowClick={this.handleWindowClick} tagName={tagName} /> : ''}

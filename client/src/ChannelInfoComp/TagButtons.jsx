@@ -10,12 +10,10 @@ const TagButton = styled.button`
   color:black;
   opacity: 70%;
   align-items: center;
-  padding: 0.07rem .4rem 0.15rem .4rem;
   margin-right: 0.5rem;
   border-radius: .8rem;
   outline: none;
-  text-align: start;
-  line-height: 16.5px;
+  text-align: center;
   font-family: Roobert, "Helvetica Neue", Helvetica, Arial, sans-serif;
 `;
 

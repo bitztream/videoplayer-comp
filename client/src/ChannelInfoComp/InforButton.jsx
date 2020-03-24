@@ -37,6 +37,7 @@ const Span = styled.span`
 
 const InforButtons = styled.div`
   display:flex;
+  margin-top:-50px;
   @media only screen and (max-width: 600px) {
     display:none;
   }
