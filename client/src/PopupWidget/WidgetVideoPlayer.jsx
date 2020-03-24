@@ -33,10 +33,15 @@ const PointerRight = styled.a`
   border-radius: 3px 0 0 3px;
 `;
 
-const SlideVideo = styled.div`
-  position: 'relative',
-  flexGrow: '1',
-  text-Align: 'center',
+const Carousel = styled.div`
+  overflow:hidden;
+  float:left;
+`;
+
+const Slides = styled.div`
+  witdh:100px;
+  height:100px;
+  border: 2px solid red;
 `;
 
 class WidgetVideoPlayer extends React.Component {
@@ -68,16 +73,20 @@ class WidgetVideoPlayer extends React.Component {
     const { page } = this.state;
     const player = video[0].videos.map(
       (vid, idx) => (vid.tags.includes(tagName)
-        ? <WidgetVideoEntry vid={vid} key={idx} page={page} id={idx} dot={dot} /> : null),
+        ? (
+          <Slides>
+            <WidgetVideoEntry vid={vid} key={idx} page={page} id={idx} dot={dot} />
+          </Slides>
+        ) : null),
     );
 
     return (
-      <div className="slideshow-container" style={{ flexGrow: '0.5' }}>
-        <SlideVideo>
+      <div className="slideshow-container">
+        <Carousel>
           {player}
           <Pointer className="left" onClick={() => this.handleClick(-1)}>&#10094;</Pointer>
           <PointerRight className="right" onClick={() => this.handleClick(1)}>&#10095;</PointerRight>
-        </SlideVideo>
+        </Carousel>
       </div>
     );
   }
