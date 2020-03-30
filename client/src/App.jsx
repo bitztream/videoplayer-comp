@@ -44,7 +44,7 @@ class App extends React.Component {
   }
 
   get() {
-    axios.get('/api/get')
+    axios.get('http://localhost:3000/api/get')
       .then((result) => {
         this.setState({ video: result.data });
         window.addEventListener('scroll', this.handleScroll);
