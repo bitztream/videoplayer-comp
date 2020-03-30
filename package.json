@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon server/index.js",
-    "build:react": "webpack -d --watch & open http://localhost:3000/",
+    "start": "node server/index.js",
+    "start-d": "nodemon server/index.js",
+    "build:react": "webpack -d",
     "seed": "node db/seeders/seedDB.js"
   },
   "repository": {
@@ -51,6 +52,7 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "styled-components": "^5.0.1",
-    "svg-parser": "^2.0.4"
+    "svg-parser": "^2.0.4",
+    "cors": "^2.8.5"
   }
 }
