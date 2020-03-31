@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import VideoPlayer from './VideoPlayer.jsx';
 import ChannelInfoBar from './ChannelInfoComp/ChannelInfoBar.jsx';
-import PlaceholderDiv from './Placeholder.jsx';
+import PlaceholderDiv from './AboutMeComp/Placeholder.jsx';
 import ScrollDownVidList from './ScrollDownVid.jsx';
 import Widget from './PopupWidget/Widget.jsx';
 
@@ -106,8 +106,6 @@ class App extends React.Component {
         {hidden && open ? <PlaceholderDiv /> : <VideoPlayer video={video} />}
         {channelInfoBar}
         {smallVideo}
-        <PlaceholderDiv />
-        <PlaceholderDiv />
         <PlaceholderDiv />
         {clicked ? <Widget video={video} handleClick={this.handleClick} handleWindowClick={this.handleWindowClick} tagName={tagName} /> : ''}
       </Body>

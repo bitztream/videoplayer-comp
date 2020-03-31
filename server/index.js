@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const controller = require('./controller.js');
 const cors = require('cors');
+const controller = require('./controller.js');
+
 const app = express();
 const port = 3000;
 app.use(cors());
