@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "node server/index.js",
     "start-d": "nodemon server/index.js",
-    "build:react": "webpack -d",
+    "build:react": "webpack -d --watch",
     "seed": "node db/seeders/seedDB.js"
   },
   "repository": {
