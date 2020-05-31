@@ -6,10 +6,10 @@ services:
     ports:
       - "27017:27017"
   app:
-    container_name: app
+    container_name: videoplayer
     build: .
     command: bash -c  "
-      npm run build:react
+      npm run build
       && npm run seed
       && npm start"
     ports:
