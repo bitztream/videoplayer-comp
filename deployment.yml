@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: videoplayerservice
+spec:
+  selector:
+    app: videoplayer
+  ports:
+    - protocol: "TCP"
+      port: 3000
+      targetPort: 3000
+      nodePort: 30001
+  type: LoadBalancer
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: videoplayer
+  labels:
+    app: videoplayer
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: videoplayer
+  template:
+    metadata:
+      labels:
+        app: videoplayer
+    spec:
+      containers:
+      - name: videoplayer
+        image: alfredxgxg123/videoplayer
+        ports:
+        - containerPort: 8080
+
+
+
+
+
+
