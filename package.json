@@ -10,7 +10,7 @@
     "build": "webpack -d",
     "build:react": "webpack -d --watch",
     "seed": "node db/seeders/seedDB.js",
-    "startdev" : "npm install && npm run seed && npm run build && npm run start"
+    "startdev": "npm install && npm run seed && npm run build && npm run start"
   },
   "repository": {
     "type": "git",

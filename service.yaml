@@ -3,24 +3,24 @@ kind: Service
 metadata:
   name: videoplayerservice
 spec:
+  type: NodePort
   ports:
-    - protocol: "TCP"
+    - targetPort: 8080
       port: 8080
-      targetPort: 8080
+      nodePort: 30001
   selector:
-      name: videoplayer
-  type: LoadBalancer
+    name: videoplayer
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: mongo
-  labels:
-    name: mongo
-spec:
-  ports:
-  - port: 27017
-    targetPort: 27017
-  clusterIP: None
-  selector:
-    role: mongo
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: mongo
+#   labels:
+#     name: mongo
+# spec:
+#   ports:
+#   - port: 27017
+#     targetPort: 30001
+#   selector:
+#     name: mongo
+
