@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testdeployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: videoplayer
+  template:
+    metadata:
+      labels:
+        name: videoplayer
+    spec:
+      containers:
+      - name: mongo
+        image: mongo
+        ports:
+        - containerPort: 27017
+        command: ["mongod"]
+      containers:
+      - name: videoplayer
+        image: alfredxgxg123/videoplayer:3.0
+        ports:
+        - containerPort: 8080
+        command: ["sh", "-c", "npm run startdev"]
+
+
+
+
+
+
