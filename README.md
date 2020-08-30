@@ -2,6 +2,22 @@
 
 videoplayer_comp is a video player related React.js/Node.js components for streamer: videoplayer, popup minisize videoplayer, popup carousel.It has been set up for docker containerization and kubernetes automation to handle loading speed and API requests for concurrent users according to user visit volume
 
+## Tech Stack
+
+- JavaScript
+- Node.js
+- Express.js
+- MongoDB
+- React
+- Styled-Components
+- Webpack
+- Babel
+- Docker
+- Kubernetes  
+- AWS service
+- Microservices
+
+
 ## Installation
 
 clone down the repo and run the following comands:
